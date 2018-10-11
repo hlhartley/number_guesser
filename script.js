@@ -62,19 +62,27 @@ function minMaxRange() {
 } 
 updateButton.addEventListener('click', minMaxRange);
 
-function enterMaxRange() {
-  if (maxRange.value === "") {
-  alert("Enter a max range")
-  };
-}
-updateButton.addEventListener('click', enterMaxRange);
 
+var minRangeError = document.querySelector('#min-range-error');
 function enterMinRange() {
   if (minRange.value === "") {
-  alert("Enter a min range")
+    minRangeError.classList.remove('display-none') 
+  } else {
+    minRangeError.innerText = "";
   };
 }
 updateButton.addEventListener('click', enterMinRange);
+
+var maxRangeError = document.querySelector('#max-range-error');
+function enterMaxRange() {
+  if (maxRange.value === "") {
+    maxRangeError.classList.remove('display-none')
+  } else {
+    maxRangeError.innerText = "";
+    };
+  }
+  updateButton.addEventListener('click', enterMaxRange);
+
 
 var errorMessage = document.querySelector('#error-message');
 function inputGuess() {
