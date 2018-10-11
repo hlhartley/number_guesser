@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guesser</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <span class="reddot"></span>
+    <span class="yellowdot"></span>
+    <span class="greendot"></span>
+  </div>
+  <section class="container">
+    <article class="left-section">
+      <p class="dark-pink-font">
+        <font weight="700">
+          NUMBER
+        </font>
+          GUESSER
+      </p>
+      <p>
+        <strong>Min Range</strong>
+        <input type="number" name="minrange" size="4" id="minrange">
+        <strong>Max Range</strong>
+        <input type="number" name="maxrange" size="4" id="maxrange">
+        <button class="update">
+          UPDATE
+        </button>
+      </p>
+      <p>
+        The Current Range is 
+        <div id="minvalue">1</div> 
+        to 
+        <div id="maxvalue">100</div>
+      </p>
+      <p id="guess-text">
+        <strong>Guess</strong>
+        <br>
+        <input type="number" name="guess" size="60" id="guess">
+      </p>
+      <p>
+        <input type="submit" id="submitguessbutton" value="SUBMIT GUESS">
+        </input>
+      </p>
+      <p>
+        <button class="disabled" id="clearbutton">
+          CLEAR
+        </button>
+        <button class="disabled" id="resetbutton">
+          RESET
+        </button>
+      </p>
+    </article>
+    <article class="right-section">
+      <p id="guessedfont">
+        You Guessed:
+      </p>
+      <p class="light-pink-font">
+      </p>
+      <p id="result-comment">
+      </p>
+    </article>
+  </section>
+<script src="script.js"></script>
+</body>
+</html>

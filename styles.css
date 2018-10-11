@@ -1,0 +1,173 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/*general styling*/
+*:focus {
+  outline: 0;
+}
+
+article {
+  margin: auto;
+}
+
+body {
+  color: #404041;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+/*button styling*/
+button {
+  background-color: #6E6E6E;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 12px;
+  height: 1.8em;
+  width: 150px;
+}
+
+button:hover {
+  background-color: #DD1972;
+}
+
+button.update {
+  background-color: #6E6E6E;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 12px;
+  height: 1.8em;
+  width: 100px;
+}
+
+button.update:hover {
+  background-color: #DD1972;
+}
+
+input#submitguessbutton:hover {
+  background-color: #DD1972;
+}
+
+input.button {
+  background-color: #6E6E6E;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 15px;
+  height: 2em;
+  width: 305px;
+}
+
+input.button:hover {
+  background-color: #DD1972;
+}
+
+input#submitguessbutton {
+  background-color: #6E6E6E;
+  border-radius: 12px;
+  color: #FFFFFF;
+  height: 2em;
+  font-size: 15px;
+  width: 305px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/*header styling*/
+.header {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background-color: grey;
+  display: flex;
+  height: 60px;
+}
+
+.reddot {
+  background-color: red;
+  border: 2px solid grey;
+  border-radius: 50%;
+  height: 15px;
+  padding: 5px;
+  margin: 2.5px;
+  margin-left: 10px;
+  margin-top: 18px;
+  width: 15px;
+}
+
+.yellowdot {
+  background-color: yellow;
+  border: 2px solid grey;
+  border-radius: 50%;
+  height: 15px;
+  padding: 5px;
+  margin: 2.5px;
+  margin-left: 10px;
+  margin-top: 18px;
+  width: 15px;
+}
+
+.greendot {
+  background-color: green;
+  border: 2px solid grey;
+  border-radius: 50%;
+  height: 15px;
+  padding: 5px;
+  margin: 2.5px;
+  margin-left: 10px;
+  margin-top: 18px;
+  width: 15px;
+}
+
+/*body styling*/
+.container {
+  align-items: center;
+  border: solid #6E6E6E;
+  display: flex;
+  flex-direction: row wrap;
+  height: 100vh;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.left-section {
+  background-color: #F7F7F7;
+  height: 100vh;
+  width: 50%;
+}
+
+.right-section { 
+  background-color: #404041;
+  color: #FFFFFF;
+  font-size: 2.75em;
+  font-weight: 300;
+  height: 100vh;
+  width: 50%;
+}
+
+#minvalue, #maxvalue{
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/*font styling*/
+.dark-pink-font {
+  color: #DD1972;
+  font-size: 2.75em;
+}
+
+.light-pink-font {
+  color: #F74D9B;
+  font-size: 3em;
+  font-weight: 700;
+} 
+
+#guessedfont {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+#result-comment {
+  font-size: 30px;
+  font-weight: 700;
+}
