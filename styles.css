@@ -172,6 +172,18 @@ input#submitguessbutton {
   font-weight: 700;
 }
 
-.error-message{
-  color: red;
+/*error message styling*/
+#error-message {
+  color: #DD1972;
+  font-size: 14px;
 }
+
+.display-none {
+  display: none;
+}
+
+#pink-error-img {
+  height: 11px;
+  width: 11px;
+}
+

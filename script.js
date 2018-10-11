@@ -8,7 +8,7 @@ var maxValue = document.querySelector('#maxvalue')
 updateButton.addEventListener('click', function() {
   minValue.innerText = minRange.value;
   maxValue.innerText = maxRange.value;
-// Sets random number to new random number based on max range
+// sets random number to new random number based on max range
   newRandomNumber = randomNumberFunction();
   console.log(newRandomNumber);
 });
@@ -51,7 +51,7 @@ resetGame.addEventListener('click', function(){
   clearInput.classList.add('disabled');
   resetGame.classList.add('disabled');
   showResultComment.innerText = "";
-  // ***generate new random number
+  newRandomNumber;
 });
 
 // Error messages
@@ -60,7 +60,6 @@ function minMaxRange() {
   alert("Min range value must be lower than max range value")
   };
 } 
-minMaxRange();
 updateButton.addEventListener('click', minMaxRange);
 
 function enterMaxRange() {
@@ -68,7 +67,6 @@ function enterMaxRange() {
   alert("Enter a max range")
   };
 }
-
 updateButton.addEventListener('click', enterMaxRange);
 
 function enterMinRange() {
@@ -76,29 +74,33 @@ function enterMinRange() {
   alert("Enter a min range")
   };
 }
-
 updateButton.addEventListener('click', enterMinRange);
 
-// function noMinMaxValue() {
-//   if (parseInt(minRange.value) === "" || parseInt(maxRange.value) === "") {
-//   alert("Input min / max value")
-//   };
-// }
-// noMinMaxValue();
-// updateButton.addEventListener('click', noMinMaxValue);
-
-var errorMessage = document.querySelector('.error-message');
-
+var errorMessage = document.querySelector('#error-message');
 function inputGuess() {
   if (guess.value === "") {
-    errorMessage.innerText = "Please input your guess"
+    errorMessage.classList.remove('display-none') 
   } else {
     errorMessage.innerText = "";
   }
 }
 submitGuessButton.addEventListener('click', inputGuess);
 
-  // Guess results and feedback
+function guessOutsideMaxRange() {
+  if (guess.value > parseInt(maxRange.value)) {
+    errorMessage.innerText = "Your guess must be lower than the max range value"
+  };
+}
+submitGuessButton.addEventListener('click', guessOutsideMaxRange)
+
+// function inputGuessNumber() {
+//   if (parseInt(guess.value === NaN)) {
+//     errorMessage.innerText = "Your guess must be an integer number"
+//   };
+// }
+// submitGuessButton.addEventListener('click', inputGuessNumber);
+
+// Guess results and feedback
 function resultMessage() {
   if (parseInt(guess.value) === newRandomNumber) {
   showResultComment.innerText = "BOOM!";
@@ -108,13 +110,4 @@ function resultMessage() {
   showResultComment.innerText = "Sorry, that is too high";
   };
 }
-  // resultMessage();
-  submitGuessButton.addEventListener('click', resultMessage);
-
-// if (guess.value === NaN) {
-//   alert("Guess must be an interger number")
-// };
-
-// if (guess.value < minRange.value || guess.value > maxRange.value) {
-//   alert("Number must be within min and max range")
-// };
+submitGuessButton.addEventListener('click', resultMessage);
