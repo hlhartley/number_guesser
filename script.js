@@ -50,6 +50,9 @@ resetGame.addEventListener('click', function(){
   lightPinkFont.innerText = "";
   clearInput.classList.add('disabled');
   resetGame.classList.add('disabled');
+  guessErrorMessage.classList.add('display-none')
+  minRangeError.classList.add('display-none')
+  maxRangeError.classList.add('display-none')
   showResultComment.innerText = "";
   newRandomNumber;
 });
