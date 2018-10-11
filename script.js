@@ -84,12 +84,12 @@ function enterMaxRange() {
   updateButton.addEventListener('click', enterMaxRange);
 
 
-var errorMessage = document.querySelector('#error-message');
+var guessErrorMessage = document.querySelector('#guess-error-message');
 function inputGuess() {
   if (guess.value === "") {
-    errorMessage.classList.remove('display-none') 
+    guessErrorMessage.classList.remove('display-none') 
   } else {
-    errorMessage.innerText = "";
+    guessErrorMessage.innerText = "";
   }
 }
 submitGuessButton.addEventListener('click', inputGuess);
