@@ -68,7 +68,7 @@ function enterMaxRange() {
   alert("Enter a max range")
   };
 }
-enterMaxRange();
+
 updateButton.addEventListener('click', enterMaxRange);
 
 function enterMinRange() {
@@ -76,7 +76,7 @@ function enterMinRange() {
   alert("Enter a min range")
   };
 }
-enterMinRange();
+
 updateButton.addEventListener('click', enterMinRange);
 
 // function noMinMaxValue() {
@@ -87,13 +87,16 @@ updateButton.addEventListener('click', enterMinRange);
 // noMinMaxValue();
 // updateButton.addEventListener('click', noMinMaxValue);
 
-// function inputGuess {
-//   if (guess.value = "") {
-//   alert("Input guess")
-//   };
-// }
-// inputGuess();
-// submitGuessButton.addEventListener('click', inputGuess);
+var errorMessage = document.querySelector('.error-message');
+
+function inputGuess() {
+  if (guess.value === "") {
+    errorMessage.innerText = "Please input your guess"
+  } else {
+    errorMessage.innerText = "";
+  }
+}
+submitGuessButton.addEventListener('click', inputGuess);
 
   // Guess results and feedback
 function resultMessage() {
@@ -105,7 +108,7 @@ function resultMessage() {
   showResultComment.innerText = "Sorry, that is too high";
   };
 }
-  resultMessage();
+  // resultMessage();
   submitGuessButton.addEventListener('click', resultMessage);
 
 // if (guess.value === NaN) {
