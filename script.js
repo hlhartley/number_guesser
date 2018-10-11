@@ -97,10 +97,13 @@ function inputGuess() {
 }
 submitGuessButton.addEventListener('click', inputGuess);
 
+var highGuessErrorMessage = document.querySelector('#high-guess-error-message');
 function guessOutsideMaxRange() {
-  if (guess.value > parseInt(maxRange.value)) {
-    errorMessage.innerText = "Your guess must be lower than the max range value"
-  };
+  if (guess.value > parseInt(maxValue.innerText)) {
+    highGuessErrorMessage.classList.remove('display-none')
+  } else {
+    highGuessErrorMessage.innerText = "";
+  }
 }
 submitGuessButton.addEventListener('click', guessOutsideMaxRange)
 
