@@ -1,4 +1,4 @@
-/*@import url(https://fonts.googleapis.com/css?family=Open+Sans);*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 /*general styling*/
 *:focus {
@@ -233,4 +233,9 @@ p {
   width: 11px;
 }
 
+#vl {
+  border-left: 1px solid #cccccc;
+  height: 100px;
+  display: inline-block;
+}
 
