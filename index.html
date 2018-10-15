@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guesser</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header dark-pink-font">
+    NUMBERGUESSER
+    <br>
+    <div class="subheading-text"> ULTIMATE CHALLENGER EDITION
+    </div>
+  </header>
+  <section class="container">
+    <article class="left-section">
+      <div class="left-section-top">
+        <p><b>Set Range</b></p>
+        <div class="range-div">
+          <p class="minrange-div">
+            Min Range<br>
+          <input type="number" name="minrange" size="4" id="minrange">
+          <p class="maxrange-div">
+            Max Range<br>
+          <input type="number" name="maxrange" size="4" id="maxrange">
+          <p>
+          <button class="update">
+            UPDATE
+          </button>
+        </div>
+          </p>
+        <div id="min-range-error" class="display-none">
+          <p id="error-message">
+          <img src="images/error-icon.svg" id="pink-error-img">
+            Enter a min range
+          </p>
+        </div>
+        <div id="max-range-error" class="display-none">
+          <p id="error-message">
+            <img src="images/error-icon.svg" id="pink-error-img">
+            Enter a max range
+          </p>
+        </div>
+      </div>
+      <div class="left-section-middle">
+        <div class="currentrange-div">
+          <p>The Current Range is </p>
+            <p id="minvalue">1</p> 
+            <p>to</p> 
+            <p id="maxvalue">100</p>
+          </div>
+          <p><b>Challenger 1</b></p>
+          <div class="challenger-one-div">
+            <p>Name
+              <br>
+              <input type="text" name="challenger name 1" size="35" id="challenger1">
+            </p>
+            <p id="guess-text"><strong>Guess</strong>
+              <br>
+              <input type="text" name="guess" id="challenger1-guess">
+            </p>
+          </div>
+          <p><b>Challenger 2</b></p>
+          <div class="challenger-two-div">  
+            <p>Name
+              <br>
+              <input type="text" name="challenger name 2" size="35" id="challenger2">
+            </p>
+            <p id="guess-text"><strong>Guess</strong>
+              <br>
+              <input type="text" name="guess" id="guess">
+            </p>
+          </div>
+          <div id="guess-error-message" class="display-none">
+            <p id="error-message">
+              <img src="images/error-icon.svg" id="pink-error-img">
+              Enter a guess
+            </p>
+          </div>
+          <div id="high-guess-error-message" class="display-none">
+            <p id="error-message">
+              <img src="images/error-icon.svg" id="pink-error-img">
+              Your guess must be lower than the max range value
+            </div>
+            <div id="low-guess-error-message" class="display-none">
+              <p id="error-message">
+                <img src="images/error-icon.svg" id="pink-error-img">
+                Your guess must be higher than the min range value
+              </div>
+              <div id="number-error-message" class="display-none">
+                <p id="error-message">
+                  <img src="images/error-icon.svg" id="pink-error-img">
+                  Your guess must be an integer number      
+                </div>
+                <p>
+                  <input type="submit" id="submitguessbutton" value="SUBMIT GUESS">
+                </input>
+                <button class="disabled" id="resetbutton">
+                  RESET GAME
+                </button>
+                <button class="disabled" id="clearbutton">
+                  CLEAR GAME
+                </button>
+              </p>
+            </div>
+
+            <div class="left-section-bottom">
+              <div class="result-div">
+                <p><b>Latest Score</b></p>
+              </div>
+
+              <div class="flex-row justify-space">
+                <div class="left-section-left-bottom">
+                  <p><b>Challenger 1 Name</b></p>
+                  <p>current guess</p>
+                  <p class="light-pink-font">0</p>
+                  <p id="result-comment"></p>
+                </div>
+
+                <div class="left-section-right-bottom">
+                  <p><b>Challenger 2 Name</b>
+                    <p> current guess</p>
+                    <p class="light-pink-font">0</p>
+                    <p id="result-comment"></p>
+                  </div>  
+                </div>
+              </div>
+            </article>
+            <article class="right-section">
+              <div class="cards">
+                <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
+                <hr />
+                <b>CHALLENGER NAME</b><br>
+                WINNER
+                <hr />
+                <b>0</b> GUESSES
+                <b>0</b> MINUTES
+                X
+              </div>
+              <div class="cards">
+                <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
+                <hr />
+                <b>CHALLENGER NAME</b><br>
+                WINNER
+                <hr />
+                <b>0</b> GUESSES
+                <b>0</b> MINUTES
+                X
+              </div>
+              <div class="cards">
+                <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
+                <hr />
+                <b>CHALLENGER NAME</b><br>
+                WINNER
+                <hr />
+                <b>0</b> GUESSES
+                <b>0</b> MINUTES
+                X
+              </div>
+            </article>
+          </section>
+          <script src="script.js"></script>
+        </body>
+        </html>
