@@ -107,12 +107,15 @@ function guessOutsideMaxRange() {
 }
 submitGuessButton.addEventListener('click', guessOutsideMaxRange)
 
-// function inputGuessNumber() {
-//   if (parseInt(guess.value === NaN)) {
-//     errorMessage.innerText = "Your guess must be an integer number"
-//   };
-// }
-// submitGuessButton.addEventListener('click', inputGuessNumber);
+var lowGuessErrorMessage = document.querySelector('#low-guess-error-message');
+function guessOutsideMinRange() {
+  if (guess.value < parseInt(minValue.innerText)) {
+    lowGuessErrorMessage.classList.remove('display-none')
+  } else {
+    lowGuessErrorMessage.innerText = "";
+  }
+}
+submitGuessButton.addEventListener('click', guessOutsideMinRange)
 
 // Guess results and feedback
 function resultMessage() {
@@ -125,3 +128,12 @@ function resultMessage() {
   };
 }
 submitGuessButton.addEventListener('click', resultMessage);
+
+// Backup for if guess is NaN
+var numberErrorMessage = document.querySelector('#number-error-message');
+function inputGuessNumber() {
+  if (isNaN(parseInt(guess.value))) {
+  numberErrorMessage.classList.remove('display-none');
+  };
+}
+submitGuessButton.addEventListener('click', inputGuessNumber);
