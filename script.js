@@ -21,14 +21,14 @@ function randomNumberFunction() {
 var newRandomNumber = randomNumberFunction();
 
 // Guess, clear, and reset buttons
-var guess = document.querySelector('#guess');
+var challengerOneGuess = document.querySelector('#challenger1-guess');
 var submitGuessButton = document.querySelector('#submitguessbutton');
 var lightPinkFont = document.querySelector('.light-pink-font')
 var makeActiveClearButton = document.querySelector('.disabled');
 var makeActiveResetButton = document.querySelectorAll('.disabled')[1];
 var showResultComment = document.querySelector('#result-comment');  
   submitGuessButton.addEventListener('click', function() {
-    lightPinkFont.innerText = guess.value;
+    lightPinkFont.innerText = challengerOneGuess.value;
     makeActiveClearButton.classList.remove('disabled');
     makeActiveClearButton.classList.add('button:hover');
     makeActiveResetButton.classList.remove('disabled');
@@ -37,14 +37,14 @@ var showResultComment = document.querySelector('#result-comment');
 
 var clearInput = document.querySelector('#clearbutton');
 clearInput.addEventListener('click', function(){
-  guess.value = "";
+  challengerOneGuess.value = "";
 });
 
 var resetGame = document.querySelector('#resetbutton');
 resetGame.addEventListener('click', function(){
   minRange.value = "";
   maxRange.value = "";
-  guess.value = "";
+  challengerOneGuess.value = "";
   minValue.innerText = "";
   maxValue.innerText = "";
   lightPinkFont.innerText = "";
@@ -89,7 +89,7 @@ function enterMaxRange() {
 
 var guessErrorMessage = document.querySelector('#guess-error-message');
 function inputGuess() {
-  if (guess.value === "") {
+  if (challengerOneGuess.value === "") {
     guessErrorMessage.classList.remove('display-none') 
   } else {
     guessErrorMessage.innerText = "";
@@ -99,7 +99,7 @@ submitGuessButton.addEventListener('click', inputGuess);
 
 var highGuessErrorMessage = document.querySelector('#high-guess-error-message');
 function guessOutsideMaxRange() {
-  if (guess.value > parseInt(maxValue.innerText)) {
+  if (challengerOneGuess.value > parseInt(maxValue.innerText)) {
     highGuessErrorMessage.classList.remove('display-none')
   } else {
     highGuessErrorMessage.innerText = "";
@@ -109,7 +109,7 @@ submitGuessButton.addEventListener('click', guessOutsideMaxRange)
 
 var lowGuessErrorMessage = document.querySelector('#low-guess-error-message');
 function guessOutsideMinRange() {
-  if (guess.value < parseInt(minValue.innerText)) {
+  if (challengerOneGuess.value < parseInt(minValue.innerText)) {
     lowGuessErrorMessage.classList.remove('display-none')
   } else {
     lowGuessErrorMessage.innerText = "";
@@ -119,11 +119,11 @@ submitGuessButton.addEventListener('click', guessOutsideMinRange)
 
 // Guess results and feedback
 function resultMessage() {
-  if (parseInt(guess.value) === newRandomNumber) {
+  if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultComment.innerText = "BOOM!";
-  } else if (parseInt(guess.value) < newRandomNumber) {
+  } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
   showResultComment.innerText = "Sorry, that is too low";
-  } else if (parseInt(guess.value) > newRandomNumber) {
+  } else if (parseInt(challengerOneGuess.value) > newRandomNumber) {
   showResultComment.innerText = "Sorry, that is too high";
   };
 }
@@ -132,7 +132,7 @@ submitGuessButton.addEventListener('click', resultMessage);
 // Backup for if guess is NaN
 var numberErrorMessage = document.querySelector('#number-error-message');
 function inputGuessNumber() {
-  if (isNaN(parseInt(guess.value))) {
+  if (isNaN(parseInt(challengerOneGuess.value))) {
   numberErrorMessage.classList.remove('display-none');
   };
 }
