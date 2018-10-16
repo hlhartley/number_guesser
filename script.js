@@ -14,21 +14,24 @@ updateButton.addEventListener('click', function() {
 });
 
 function randomNumberFunction() {
-  return Math.floor(Math.random() * parseInt(maxValue.innerText) + 1); 
+  var randomNumberGenerator = Math.floor(Math.random() * (parseInt(maxValue.innerText) - parseInt(minValue.innerText) + 1)) + parseInt(minValue.innerText); 
+  return randomNumberGenerator;
 }
-
-// *Random number variable (initializes #1-100)
 var newRandomNumber = randomNumberFunction();
 
 // Guess, clear, and reset buttons
 var challengerOneGuess = document.querySelector('#challenger1-guess');
+var challengerTwoGuess = document.querySelector('#challenger2-guess');
 var submitGuessButton = document.querySelector('#submitguessbutton');
-var lightPinkFont = document.querySelector('.light-pink-font')
+var challenger1GuessResult = document.querySelector('.challenger1-guess-result');
+var challenger2GuessResult = document.querySelector('.challenger2-guess-result');
 var makeActiveClearButton = document.querySelector('.disabled');
 var makeActiveResetButton = document.querySelectorAll('.disabled')[1];
-var showResultComment = document.querySelector('#result-comment');  
+var showResultCommentC1 = document.querySelector('#result-comment-c1'); 
+var showResultCommentC2 = document.querySelector('#result-comment-c2'); 
   submitGuessButton.addEventListener('click', function() {
-    lightPinkFont.innerText = challengerOneGuess.value;
+    challenger1GuessResult.innerText = challengerOneGuess.value;
+    challenger2GuessResult.innerText = challengerTwoGuess.value;
     makeActiveClearButton.classList.remove('disabled');
     makeActiveClearButton.classList.add('button:hover');
     makeActiveResetButton.classList.remove('disabled');
@@ -38,6 +41,12 @@ var showResultComment = document.querySelector('#result-comment');
 var clearInput = document.querySelector('#clearbutton');
 clearInput.addEventListener('click', function(){
   challengerOneGuess.value = "";
+  challengerTwoGuess.value = "";
+  minRange.value = "";
+  maxRange.value = "";
+  guessErrorMessage.classList.add('display-none');
+  minRangeError.classList.add('display-none');
+  maxRangeError.classList.add('display-none');
 });
 
 var resetGame = document.querySelector('#resetbutton');
@@ -45,15 +54,18 @@ resetGame.addEventListener('click', function(){
   minRange.value = "";
   maxRange.value = "";
   challengerOneGuess.value = "";
+  challengerTwoGuess.value = "";
+  showResultCommentC1.innerText = "";
+  showResultCommentC2.innerText = "";
   minValue.innerText = "";
   maxValue.innerText = "";
-  lightPinkFont.innerText = "";
+  showResultCommentC1 = "";
+  showResultCommentC2 = "";
   clearInput.classList.add('disabled');
   resetGame.classList.add('disabled');
   guessErrorMessage.classList.add('display-none')
   minRangeError.classList.add('display-none')
   maxRangeError.classList.add('display-none')
-  showResultComment.innerText = "";
   newRandomNumber;
 });
 
@@ -118,16 +130,29 @@ function guessOutsideMinRange() {
 submitGuessButton.addEventListener('click', guessOutsideMinRange)
 
 // Guess results and feedback
-function resultMessage() {
+function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
-  showResultComment.innerText = "BOOM!";
+  showResultCommentC1.innerText = "BOOM!";
+  // addWinnerCard();
+
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
-  showResultComment.innerText = "Sorry, that is too low";
+  showResultCommentC1.innerText = "Sorry, that is too low";
   } else if (parseInt(challengerOneGuess.value) > newRandomNumber) {
-  showResultComment.innerText = "Sorry, that is too high";
+  showResultCommentC1.innerText = "Sorry, that is too high";
   };
 }
-submitGuessButton.addEventListener('click', resultMessage);
+submitGuessButton.addEventListener('click', resultMessageC1);
+
+function resultMessageC2() {
+  if (parseInt(challengerTwoGuess.value) === newRandomNumber) {
+  showResultCommentC2.innerText = "BOOM!";
+  } else if (parseInt(challengerTwoGuess.value) < newRandomNumber) {
+  showResultCommentC2.innerText = "Sorry, that is too low";
+  } else if (parseInt(challengerTwoGuess.value) > newRandomNumber) {
+  showResultCommentC2.innerText = "Sorry, that is too high";
+  };
+}
+submitGuessButton.addEventListener('click', resultMessageC2);
 
 // Backup for if guess is NaN
 var numberErrorMessage = document.querySelector('#number-error-message');
@@ -137,3 +162,14 @@ function inputGuessNumber() {
   };
 }
 submitGuessButton.addEventListener('click', inputGuessNumber);
+
+// Challenger 1 and 2 Names - Cards
+var challenger1Name = document.querySelector('#challenger1');
+var challenger2Name = document.querySelector('#challenger2');
+var challenger1NameResult = document.querySelector('.challenger1nameresult');
+var challenger2NameResult = document.querySelector('.challenger2nameresult');
+submitGuessButton.addEventListener('click', function() {
+challenger1NameResult.innerText = challenger1Name.value;
+challenger2NameResult.innerText = challenger2Name.value;
+})
+
