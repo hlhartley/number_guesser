@@ -25,7 +25,7 @@ p {
 .title-number::before {
   content: "NUMBER";
   font-weight: bold;
-  font-size: 40px;
+  font-size: 45px;
   }
 
 .dark-pink-font {
@@ -37,7 +37,7 @@ p {
 
 .light-pink-font {
   color: #F74D9B;
-  font-size: 40px;
+  font-size: 45px;
 } 
 
 .subheading-text {
