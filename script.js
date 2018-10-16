@@ -59,15 +59,22 @@ var numberErrorMessage = document.querySelector('#number-error-message');
   makeActiveClearButton.classList.add('button:hover');
   makeActiveResetButton.classList.remove('disabled');
   makeActiveResetButton.classList.add('button:hover');
+  guessOutsideMinRange();
+  guessOutsideMaxRange();
+  resultMessageC1();
+  resultMessageC2();
+  inputGuessNumber();
   });
 
 // Update Button
   updateButton.addEventListener('click', function() {
   minValue.innerText = minRange.value;
   maxValue.innerText = maxRange.value;
-// sets random number to new random number based on max range
   newRandomNumber = randomNumberFunction();
   console.log(newRandomNumber);
+  enterMinRange();
+  enterMaxRange();
+  minMaxRange();
 });
 
 // Clear Button
@@ -122,7 +129,7 @@ function enterMinRange() {
     minRangeError.innerText = "";
   };
 }
-  updateButton.addEventListener('click', enterMinRange);
+  // updateButton.addEventListener('click', enterMinRange);
 
 function enterMaxRange() {
   if (maxRange.value === "") {
@@ -131,25 +138,25 @@ function enterMaxRange() {
   maxRangeError.innerText = "";
   };
 }
-  updateButton.addEventListener('click', enterMaxRange);
+  // updateButton.addEventListener('click', enterMaxRange);
 
 function guessOutsideMaxRange() {
-  if (challengerOneGuess.value > parseInt(maxValue.innerText)) {
+  if (challengerOneGuess.value > parseInt(maxValue.innerText) || challengerTwoGuess.value > parseInt(maxValue.innerText)) {
   highGuessErrorMessage.classList.remove('display-none')
   } else {
   highGuessErrorMessage.innerText = "";
   }
 }
-  submitGuessButton.addEventListener('click', guessOutsideMaxRange);
+  // submitGuessButton.addEventListener('click', guessOutsideMaxRange);
 
 function guessOutsideMinRange() {
-  if (challengerOneGuess.value < parseInt(minValue.innerText)) {
+  if (challengerOneGuess.value < parseInt(minValue.innerText) || challengerTwoGuess.value < parseInt(minValue.innerText)) {
     lowGuessErrorMessage.classList.remove('display-none')
   } else {
     lowGuessErrorMessage.innerText = "";
   }
 }
-  submitGuessButton.addEventListener('click', guessOutsideMinRange);
+  // submitGuessButton.addEventListener('click', guessOutsideMinRange);
 
 // Guess results and feedback for challenger 1 and 2
 function resultMessageC1() {
@@ -162,7 +169,7 @@ function resultMessageC1() {
   showResultCommentC1.innerText = "Sorry, that is too high";
   };
 }
-  submitGuessButton.addEventListener('click', resultMessageC1);
+  // submitGuessButton.addEventListener('click', resultMessageC1);
 
 function resultMessageC2() {
   if (parseInt(challengerTwoGuess.value) === newRandomNumber) {
@@ -173,7 +180,7 @@ function resultMessageC2() {
   showResultCommentC2.innerText = "Sorry, that is too high";
   };
 }
-  submitGuessButton.addEventListener('click', resultMessageC2);
+  // submitGuessButton.addEventListener('click', resultMessageC2);
 
 // NaN Function
 function inputGuessNumber() {
@@ -181,7 +188,7 @@ function inputGuessNumber() {
   numberErrorMessage.classList.remove('display-none');
   };
 }
-  submitGuessButton.addEventListener('click', inputGuessNumber);
+  // submitGuessButton.addEventListener('click', inputGuessNumber);
 
 
 // function addElement() {
