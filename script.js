@@ -5,20 +5,6 @@ var minValue = document.querySelector('#minvalue');
 var maxRange = document.querySelector('#maxrange');
 var maxValue = document.querySelector('#maxvalue')
 
-updateButton.addEventListener('click', function() {
-  minValue.innerText = minRange.value;
-  maxValue.innerText = maxRange.value;
-// sets random number to new random number based on max range
-  newRandomNumber = randomNumberFunction();
-  console.log(newRandomNumber);
-});
-
-function randomNumberFunction() {
-  var randomNumberGenerator = Math.floor(Math.random() * (parseInt(maxValue.innerText) - parseInt(minValue.innerText) + 1)) + parseInt(minValue.innerText); 
-  return randomNumberGenerator;
-}
-var newRandomNumber = randomNumberFunction();
-
 // Guess, clear, and reset buttons
 var challengerOneGuess = document.querySelector('#challenger1-guess');
 var challengerTwoGuess = document.querySelector('#challenger2-guess');
@@ -29,17 +15,57 @@ var makeActiveClearButton = document.querySelector('.disabled');
 var makeActiveResetButton = document.querySelectorAll('.disabled')[1];
 var showResultCommentC1 = document.querySelector('#result-comment-c1'); 
 var showResultCommentC2 = document.querySelector('#result-comment-c2'); 
+
+//variable for newRandomNumber// 
+var newRandomNumber = randomNumberFunction();
+
+// Challenger 1 and 2 Names - Cards
+var challenger1Name = document.querySelector('#challenger1');
+var challenger2Name = document.querySelector('#challenger2');
+var challenger1NameResult = document.querySelector('.challenger1nameresult');
+var challenger2NameResult = document.querySelector('.challenger2nameresult');
+
+//clear-button//
+var clearInput = document.querySelector('#clearbutton');
+
+//reset-button//
+var resetGame = document.querySelector('#resetbutton');
+
+//error-message// 
+var minRangeError = document.querySelector('#min-range-error');
+var guessErrorMessage = document.querySelector('#guess-error-message');
+var highGuessErrorMessage = document.querySelector('#high-guess-error-message');
+var maxRangeError = document.querySelector('#max-range-error');
+var lowGuessErrorMessage = document.querySelector('#low-guess-error-message');
+// Backup for if guess is NaN
+var numberErrorMessage = document.querySelector('#number-error-message');
+
+
+
+//Event-Listeners// 
+
+//Guess-Button// 
+
   submitGuessButton.addEventListener('click', function() {
-    challenger1GuessResult.innerText = challengerOneGuess.value;
-    challenger2GuessResult.innerText = challengerTwoGuess.value;
-    makeActiveClearButton.classList.remove('disabled');
-    makeActiveClearButton.classList.add('button:hover');
-    makeActiveResetButton.classList.remove('disabled');
-    makeActiveResetButton.classList.add('button:hover');
+  challenger1NameResult.innerText = challenger1Name.value;
+  challenger2NameResult.innerText = challenger2Name.value;
+  challenger1GuessResult.innerText = challengerOneGuess.value;
+  challenger2GuessResult.innerText = challengerTwoGuess.value;
+  makeActiveClearButton.classList.remove('disabled');
+  makeActiveClearButton.classList.add('button:hover');
+  makeActiveResetButton.classList.remove('disabled');
+  makeActiveResetButton.classList.add('button:hover');
   });
 
-var clearInput = document.querySelector('#clearbutton');
-clearInput.addEventListener('click', function(){
+  updateButton.addEventListener('click', function() {
+  minValue.innerText = minRange.value;
+  maxValue.innerText = maxRange.value;
+// sets random number to new random number based on max range
+  newRandomNumber = randomNumberFunction();
+  console.log(newRandomNumber);
+});
+
+  clearInput.addEventListener('click', function(){
   challengerOneGuess.value = "";
   challengerTwoGuess.value = "";
   minRange.value = "";
@@ -49,8 +75,7 @@ clearInput.addEventListener('click', function(){
   maxRangeError.classList.add('display-none');
 });
 
-var resetGame = document.querySelector('#resetbutton');
-resetGame.addEventListener('click', function(){
+  resetGame.addEventListener('click', function(){
   minRange.value = "";
   maxRange.value = "";
   challengerOneGuess.value = "";
@@ -69,28 +94,32 @@ resetGame.addEventListener('click', function(){
   newRandomNumber;
 });
 
+
+//Functions// 
+  function randomNumberFunction() {
+    var randomNumberGenerator = Math.floor(Math.random() * (parseInt(maxValue.innerText) - parseInt(minValue.innerText) + 1)) + parseInt(minValue.innerText); 
+    return randomNumberGenerator;
+}
+
 // Error messages
-function minMaxRange() {
-  if (parseInt(maxRange.value) < parseInt(minRange.value)) {
-  alert("Min range value must be lower than max range value")
+  function minMaxRange() {
+    if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+    alert("Min range value must be lower than max range value")
   };
 } 
-updateButton.addEventListener('click', minMaxRange);
 
-
-var minRangeError = document.querySelector('#min-range-error');
-function enterMinRange() {
-  if (minRange.value === "") {
+  function enterMinRange() {
+    if (minRange.value === "") {
     minRangeError.classList.remove('display-none') 
   } else {
     minRangeError.innerText = "";
   };
 }
-updateButton.addEventListener('click', enterMinRange);
+  updateButton.addEventListener('click', enterMinRange);
 
-var maxRangeError = document.querySelector('#max-range-error');
-function enterMaxRange() {
-  if (maxRange.value === "") {
+
+  function enterMaxRange() {
+    if (maxRange.value === "") {
     maxRangeError.classList.remove('display-none')
   } else {
     maxRangeError.innerText = "";
@@ -99,9 +128,9 @@ function enterMaxRange() {
   updateButton.addEventListener('click', enterMaxRange);
 
 
-var guessErrorMessage = document.querySelector('#guess-error-message');
-function inputGuess() {
-  if (challengerOneGuess.value === "") {
+
+  function inputGuess() {
+    if (challengerOneGuess.value === "") {
     guessErrorMessage.classList.remove('display-none') 
   } else {
     guessErrorMessage.innerText = "";
@@ -109,7 +138,7 @@ function inputGuess() {
 }
 submitGuessButton.addEventListener('click', inputGuess);
 
-var highGuessErrorMessage = document.querySelector('#high-guess-error-message');
+
 function guessOutsideMaxRange() {
   if (challengerOneGuess.value > parseInt(maxValue.innerText)) {
     highGuessErrorMessage.classList.remove('display-none')
@@ -119,7 +148,7 @@ function guessOutsideMaxRange() {
 }
 submitGuessButton.addEventListener('click', guessOutsideMaxRange)
 
-var lowGuessErrorMessage = document.querySelector('#low-guess-error-message');
+
 function guessOutsideMinRange() {
   if (challengerOneGuess.value < parseInt(minValue.innerText)) {
     lowGuessErrorMessage.classList.remove('display-none')
@@ -154,8 +183,7 @@ function resultMessageC2() {
 }
 submitGuessButton.addEventListener('click', resultMessageC2);
 
-// Backup for if guess is NaN
-var numberErrorMessage = document.querySelector('#number-error-message');
+
 function inputGuessNumber() {
   if (isNaN(parseInt(challengerOneGuess.value))) {
   numberErrorMessage.classList.remove('display-none');
@@ -163,13 +191,5 @@ function inputGuessNumber() {
 }
 submitGuessButton.addEventListener('click', inputGuessNumber);
 
-// Challenger 1 and 2 Names - Cards
-var challenger1Name = document.querySelector('#challenger1');
-var challenger2Name = document.querySelector('#challenger2');
-var challenger1NameResult = document.querySelector('.challenger1nameresult');
-var challenger2NameResult = document.querySelector('.challenger2nameresult');
-submitGuessButton.addEventListener('click', function() {
-challenger1NameResult.innerText = challenger1Name.value;
-challenger2NameResult.innerText = challenger2Name.value;
-})
+
 
