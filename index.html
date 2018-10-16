@@ -14,7 +14,9 @@
   <section class="container">
     <article class="left-section">
       <div class="left-section-top">
-        <p><b>Set Range</b></p>
+        <p>
+          <b>Set Range</b>
+        </p>
         <div class="range-div">
           <p class="minrange-div">
             Min Range<br>
@@ -79,67 +81,72 @@
           <div id="high-guess-error-message" class="display-none">
             <p id="error-message">
               <img src="images/error-icon.svg" id="pink-error-img">
-              Your guess must be lower than the max range value
-            </div>
-            <div id="low-guess-error-message" class="display-none">
-              <p id="error-message">
-                <img src="images/error-icon.svg" id="pink-error-img">
+                Your guess must be lower than the max range value
+            </p>
+          </div>
+          <div id="low-guess-error-message" class="display-none">
+            <p id="error-message">
+              <img src="images/error-icon.svg" id="pink-error-img">
                 Your guess must be higher than the min range value
-              </div>
-              <div id="number-error-message" class="display-none">
-                <p id="error-message">
-                  <img src="images/error-icon.svg" id="pink-error-img">
-                  Your guess must be an integer number      
-                </div>
-                <p>
-                  <input type="submit" id="submitguessbutton" value="SUBMIT GUESS">
-                </input>
-                <button class="disabled" id="resetbutton">
-                  RESET GAME
-                </button>
-                <button class="disabled" id="clearbutton">
-                  CLEAR GAME
-                </button>
-              </p>
+            </p>
+          </div>
+          <div id="number-error-message" class="display-none">
+            <p id="error-message">
+              <img src="images/error-icon.svg" id="pink-error-img">
+                Your guess must be an integer number
+            </p>      
+          </div>
+            <p>
+              <input type="submit" id="submitguessbutton" value="SUBMIT GUESS">
+              </input>
+              <button class="disabled" id="resetbutton">
+                RESET GAME
+              </button>
+              <button class="disabled" id="clearbutton">
+                CLEAR GAME
+              </button>
+            </p>
+          </div>
+          <div class="left-section-bottom">
+            <div class="result-div">
+              <p><b>Latest Score</b></p>
             </div>
-
-            <div class="left-section-bottom">
-              <div class="result-div">
-                <p><b>Latest Score</b></p>
+            <div class="flex-row justify-space">
+              <div class="left-section-left-bottom">
+                <p class="challenger1nameresult">
+                  <b>Challenger 1 Name</b>
+                </p>
+                <p>current guess</p>
+                <p class="challenger1-guess-result">0
+                </p>
+                <p id="result-comment-c1">Result c1</p>
               </div>
-
-              <div class="flex-row justify-space">
-                <div class="left-section-left-bottom">
-                  <p class="challenger1nameresult"><b>Challenger 1 Name</b></p>
-                  <p>current guess</p>
-                  <p class="challenger1-guess-result">0</p>
-                  <p id="result-comment-c1">Result c1</p>
-                </div>
-                <div id="vl"></div>
-                <div class="left-section-right-bottom">
-                  <p class="challenger2nameresult"><b>Challenger 2 Name</b>
-                    <p> current guess</p>
-                    <p class="challenger2-guess-result">0</p>
-                    <p id="result-comment-c2">
-                      Result c2
-                    </p>
-                  </div>  
-                </div>
-              </div>
-            </article>
-            <article class="right-section">
-              <div class="cards">
-                <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
-                <hr />
-                <b>CHALLENGER NAME</b><br>
-                WINNER
-                <hr />
-                <b>0</b> GUESSES
-                <b>0</b> MINUTES
-                X
-              </div>
-            </article>
-          </section>
-          <script src="script.js"></script>
-        </body>
-        </html>
+              <div id="vl"></div>
+              <div class="left-section-right-bottom">
+                <p class="challenger2nameresult">
+                  <b>Challenger 2 Name</b>
+                </p>
+                <p> current guess</p>
+                <p class="challenger2-guess-result">0</p>
+                <p id="result-comment-c2">Result c2
+                </p>
+              </div>  
+            </div>
+          </div>
+        </article>
+        <article class="right-section">
+          <div class="cards">
+            <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
+            <hr />
+            <b>CHALLENGER NAME</b><br>
+            WINNER
+            <hr />
+            <b>0</b> GUESSES
+            <b>0</b> MINUTES
+            X
+          </div>
+        </article>
+      </section>
+  <script src="script.js"></script>
+  </body>
+  </html>
