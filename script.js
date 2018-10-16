@@ -17,6 +17,7 @@ function randomNumberFunction() {
   var randomNumberGenerator = Math.floor(Math.random() * (parseInt(maxValue.innerText) - parseInt(minValue.innerText) + 1)) + parseInt(minValue.innerText); 
   return randomNumberGenerator;
 }
+var newRandomNumber = randomNumberFunction();
 
 // Guess, clear, and reset buttons
 var challengerOneGuess = document.querySelector('#challenger1-guess');
@@ -40,6 +41,12 @@ var showResultCommentC2 = document.querySelector('#result-comment-c2');
 var clearInput = document.querySelector('#clearbutton');
 clearInput.addEventListener('click', function(){
   challengerOneGuess.value = "";
+  challengerTwoGuess.value = "";
+  minRange.value = "";
+  maxRange.value = "";
+  guessErrorMessage.classList.add('display-none');
+  minRangeError.classList.add('display-none');
+  maxRangeError.classList.add('display-none');
 });
 
 var resetGame = document.querySelector('#resetbutton');
@@ -47,15 +54,18 @@ resetGame.addEventListener('click', function(){
   minRange.value = "";
   maxRange.value = "";
   challengerOneGuess.value = "";
+  challengerTwoGuess.value = "";
+  showResultCommentC1.innerText = "";
+  showResultCommentC2.innerText = "";
   minValue.innerText = "";
   maxValue.innerText = "";
-  lightPinkFont.innerText = "";
+  showResultCommentC1 = "";
+  showResultCommentC2 = "";
   clearInput.classList.add('disabled');
   resetGame.classList.add('disabled');
   guessErrorMessage.classList.add('display-none')
   minRangeError.classList.add('display-none')
   maxRangeError.classList.add('display-none')
-  showResultCommentC1.innerText = "";
   newRandomNumber;
 });
 
@@ -150,3 +160,14 @@ function inputGuessNumber() {
   };
 }
 submitGuessButton.addEventListener('click', inputGuessNumber);
+
+// Challenger 1 and 2 Names - Cards
+var challenger1Name = document.querySelector('#challenger1');
+var challenger2Name = document.querySelector('#challenger2');
+var challenger1NameResult = document.querySelector('.challenger1nameresult');
+var challenger2NameResult = document.querySelector('.challenger2nameresult');
+submitGuessButton.addEventListener('click', function() {
+challenger1NameResult.innerText = challenger1Name.value;
+challenger2NameResult.innerText = challenger2Name.value;
+})
+
