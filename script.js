@@ -133,6 +133,8 @@ submitGuessButton.addEventListener('click', guessOutsideMinRange)
 function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultCommentC1.innerText = "BOOM!";
+  // addWinnerCard();
+
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
   showResultCommentC1.innerText = "Sorry, that is too low";
   } else if (parseInt(challengerOneGuess.value) > newRandomNumber) {
