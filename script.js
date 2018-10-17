@@ -74,6 +74,7 @@ var guessCounter = 0;
     resultMessageC1();
     resultMessageC2();
     inputGuessNumber();
+    decreaseMinMaxValue();
   });
 
 // Update Button
@@ -166,11 +167,21 @@ function guessOutsideMinRange() {
   }
 }
 
+function decreaseMinMaxValue() {
+  if (challengerOneGuess.value = newRandomNumber) { 
+    minRange.value = parseInt(minRange.value) - 10;
+    maxRange.value = parseInt(maxRange.value) + 10;
+  newRandomNumber;
+  }
+}
+
 // Guess results and feedback for challenger 1 and 2
 function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultCommentC1.innerText = "BOOM!";
   winner = challenger1NameResult.innerText;
+
+// DECREASE MIN RANGE BY 10, INCREASE MAX RANGE BY 10
 
   addWinnerCard();
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
@@ -185,6 +196,11 @@ function resultMessageC2() {
   showResultCommentC2.innerText = "BOOM!";
   addWinnerCard();
   winner = challenger2NameResult.innerText;
+
+  // DECREASE MIN RANGE BY 10, INCREASE MAX RANGE BY 10
+  // if challengerTwoGuess.value = newRandomNumber && reset button (resetGame) is clicked =>
+  // minValue.innerText - 10
+  // maxValue.innerText + 10
 
   } else if (parseInt(challengerTwoGuess.value) < newRandomNumber) {
   showResultCommentC2.innerText = "Sorry, that is too low";
