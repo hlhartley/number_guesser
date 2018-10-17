@@ -219,7 +219,6 @@ function addWinnerCard() {
  rightSection.innerHTML = rightSection.innerHTML + cardHtml;
 }
 
-
 function removeOneCard() {
   event.currentTarget.innerHTML = "";
   // console.log(event.target);
@@ -227,13 +226,16 @@ function removeOneCard() {
 }
 
 // Remove All Cards
-var removeCards = document.querySelector('.remove-cards');
+// var removeCards = document.querySelector('.remove-cards');
+// function removeAllCards() {
+//   console.log("remove")
+//   rightSection.innerHTML = "";
+// }
+// removeCards.addEventListener('click', removeAllCards);
+
 function removeAllCards() {
-  rightSection.innerHTML = "";
+  rightSection.innerHTML = `<button onclick="removeAllCards()" class="remove-cards">REMOVE CARDS</button>`;
 }
-removeCards.addEventListener('click', removeAllCards);
-
-
 
 
 
