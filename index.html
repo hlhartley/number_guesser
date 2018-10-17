@@ -14,22 +14,24 @@
   <section class="container">
     <article class="left-section">
       <div class="left-section-top">
-        <p>
-          <b>Set Range</b>
+        <p class="bold-font">
+          Set Range
         </p>
         <div class="range-div">
           <p class="minrange-div">
             Min Range<br>
           <input type="number" name="minrange" size="4" id="minrange">
+          </p>
           <p class="maxrange-div">
             Max Range<br>
           <input type="number" name="maxrange" size="4" id="maxrange">
+          </p>
           <p>
           <button class="update">
             UPDATE
           </button>
+        </p>
         </div>
-          </p>
         <div id="min-range-error" class="display-none">
           <p id="error-message">
           <img src="images/error-icon.svg" id="pink-error-img">
@@ -46,11 +48,12 @@
       <div class="left-section-middle">
         <div class="flex-row">
           <p>The Current Range is </p>
-            <p id="minvalue">1</p> 
+            <p class="bold-font" id="minvalue">1</p> 
             <p>to</p> 
             <p id="maxvalue">100</p>
           </div>
-          <p><b>Challenger 1</b></p>
+          <br>
+          <p class="bold-font">Challenger 1</p>
           <div class="flex-row">
             <p>Name
               <br>
@@ -61,7 +64,8 @@
               <input type="text" name="guess" id="challenger1-guess">
             </p>
           </div>
-          <p><b>Challenger 2</b></p>
+          <br>
+          <p class="bold-font">Challenger 2</p>
           <div class="flex-row">  
             <p>Name
               <br>
@@ -109,26 +113,28 @@
           </div>
           <div class="left-section-bottom">
             <div class="result-div">
-              <p><b>Latest Score</b></p>
+              <p class="bold-font">Latest Score
+              </p>
+              <br>
             </div>
             <div class="flex-row justify-space">
               <div class="left-section-left-bottom">
-                <p class="challenger1nameresult">
-                  <b>Challenger 1 Name</b>
+                <p class="challenger1nameresult bold-font">
+                  Challenger 1
                 </p>
                 <p>current guess</p>
                 <p class="challenger1-guess-result dark-pink-font">0
                 </p>
-                <p class="display-none" id="result-comment-c1">Result c1</p>
+                <p class="hidden" id="result-comment-c1">Result c1</p>
               </div>
               <div id="vl"></div>
               <div class="left-section-right-bottom">
-                <p class="challenger2nameresult">
-                  <b>Challenger 2 Name</b>
+                <p class="challenger2nameresult bold-font">
+                  Challenger 2
                 </p>
                 <p> current guess</p>
                 <p class="challenger2-guess-result dark-pink-font">0</p>
-                <p class="display-none" id="result-comment-c2">Result c2
+                <p class="hidden" id="result-comment-c2">Result c2
                 </p>
               </div>  
             </div>

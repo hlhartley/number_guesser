@@ -1,10 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 /*general styling*/
-*:focus {
-  outline: 0;
-}
-
 * {
   font-family: 'Open Sans', sans-serif;
   margin: 0px;
@@ -14,11 +10,16 @@
 body {
   color: #404041;
   font-weight: 300;
-  font-size: .9em;
+  font-size: 17px;
 }
 
 p {
   margin: 5px;
+}
+
+input:focus{
+    outline: none;
+    border: 1.5px solid #6E6E6E;
 }
 
 /*font styling*/
@@ -27,6 +28,10 @@ p {
   font-weight: bold;
   font-size: 45px;
   }
+
+.bold-font {
+  font-weight: bold;
+}
 
 .dark-pink-font {
   color: #DD1972;
@@ -61,8 +66,13 @@ button {
   border-radius: 12px;
   color: #FFFFFF;
   font-size: 1em;
+  margin: 6.5px;
   padding: 5px;
   width: 30%;
+}
+
+button:focus {
+  outline: 0;
 }
 
 #submitguessbutton {
@@ -83,9 +93,9 @@ button:hover {
 
 .update {
   width: 100px;
-  height: 23px;
-  margin-top: 10px;
-  margin: 10px;
+  height: 26px;
+  margin-top: 16.5px;
+  text-align: center;
 }
 
 .disabled {
@@ -113,7 +123,7 @@ button:hover {
   display: none;
 }
 
-.visibility-hidden {
+.hidden {
   visibility: hidden;
 }
 
@@ -163,7 +173,7 @@ button:hover {
 
 .left-section-middle {
   background-color: white;
-  display: flex;
+  justify-content: space-between;
   flex-flow: column wrap;
   border: 1px solid #E8E8E8;
   padding: 10px;
@@ -173,6 +183,7 @@ button:hover {
 .left-section-bottom {
   background-color: white;
   display: flex;
+
   flex-direction: column;
   border: 1px solid #E8E8E8;
   padding: 10px;
