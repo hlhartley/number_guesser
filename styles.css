@@ -85,7 +85,7 @@ button:focus {
   background-color: #6E6E6E;
   padding: 5px;
   border-radius: 12px;
-  width: 30%;
+  width: 175px;
   color: #FFFFFF;
 }
 
@@ -109,6 +109,15 @@ button:hover {
   opacity: 0.6;
 }
 
+.x-button {
+  background-color: #6E6E6E;
+  border-radius: 50%;
+  color: #D8D8D8;
+  height: 19.5px;
+  width: 19.5px;
+  text-align: center;
+}
+
 /**flex-box styling*/
 .flex-row {
   display: flex;
@@ -122,6 +131,14 @@ button:hover {
 
 .justify-space {
   justify-content: space-around;
+}
+
+.remove-cards {
+  position: absolute;
+  right: 0;
+  width: 175px;
+  height: auto;
+  margin-top: 16.5px;
 }
 
 /*hidden styling*/

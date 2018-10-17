@@ -54,6 +54,11 @@ var winner = '';
 // Guess Counter
 var guessCounter = 0;
 
+// Time Counters
+var startTime; 
+var endTime;
+var isFirstRound = true;
+
 // **EVENT LISTENERS**
 // Submit Guess Button 
   submitGuessButton.addEventListener('click', function() {
@@ -75,7 +80,15 @@ var guessCounter = 0;
     resultMessageC2();
     inputGuessNumber();
     decreaseMinMaxValue();
+    timeFunction();
   });
+
+  function timeFunction() {
+    if (isFirstRound) {
+      startTime = new Date;
+      isFirstRound = false;
+    }
+  }
 
 // Update Button
   updateButton.addEventListener('click', function() {
@@ -168,7 +181,7 @@ function guessOutsideMinRange() {
 }
 
 function decreaseMinMaxValue() {
-  if (challengerOneGuess.value = newRandomNumber) { 
+  if (parseInt(challengerOneGuess.value) === newRandomNumber) { 
     minRange.value = parseInt(minRange.value) - 10;
     maxRange.value = parseInt(maxRange.value) + 10;
   newRandomNumber;
@@ -179,9 +192,8 @@ function decreaseMinMaxValue() {
 function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultCommentC1.innerText = "BOOM!";
+  endTime = new Date;
   winner = challenger1NameResult.innerText;
-
-// DECREASE MIN RANGE BY 10, INCREASE MAX RANGE BY 10
 
   addWinnerCard();
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
@@ -194,6 +206,7 @@ function resultMessageC1() {
 function resultMessageC2() {
   if (parseInt(challengerTwoGuess.value) === newRandomNumber) {
   showResultCommentC2.innerText = "BOOM!";
+  endTime = new Date;
   addWinnerCard();
   winner = challenger2NameResult.innerText;
 
@@ -216,6 +229,12 @@ function inputGuessNumber() {
   };
 }
 
+// Calculate difference in time
+function calculateTime() {
+  var time = (endTime - startTime) / 60000;
+  return time;
+}
+
 // Add Winner Cards
 var rightSection = document.querySelector('.right-section');
 function addWinnerCard() {
@@ -228,8 +247,8 @@ function addWinnerCard() {
       WINNER
       <hr />
       <b>${guessCounter}</b> GUESSES
-      <b>0</b> MINUTES
-      <div class="x-button">X</div>
+      <b>${calculateTime(startTime, endTime)}</b> MINUTES
+      <div class="x-button">x</div>
     </div>
   </article>`;
  rightSection.innerHTML = rightSection.innerHTML + cardHtml;
@@ -241,6 +260,10 @@ function removeOneCard() {
   // console.log(event.currentTarget)
 }
 
+function removeAllCards() {
+  rightSection.innerHTML = `<button onclick="removeAllCards()" class="remove-cards">REMOVE CARDS</button>`;
+}
+
 // Remove All Cards
 // var removeCards = document.querySelector('.remove-cards');
 // function removeAllCards() {
@@ -249,9 +272,6 @@ function removeOneCard() {
 // }
 // removeCards.addEventListener('click', removeAllCards);
 
-function removeAllCards() {
-  rightSection.innerHTML = `<button onclick="removeAllCards()" class="remove-cards">REMOVE CARDS</button>`;
-}
 
 
 
