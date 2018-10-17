@@ -148,24 +148,24 @@ button:hover {
 /*body styling*/
 .container {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: center;
   width: 100%;
 }
 
 .left-section {
+  background-color: #F5F5F5;
   display: flex;
   flex-direction: column;
-  background-color: #F5F5F5;
-  width: 100%;
+  width: 50%;
 }
 
 .right-section { 
   display: flex;
   flex-direction: column;
   background-color: #D8D8D8;
-  width: 100%;
   color: #505050;
+  width: 50%;
 }
 
 .left-section-top {
@@ -246,9 +246,9 @@ button:hover {
 }
 
 /*media query*/
-@media screen and (max-width: 1000px) {
-  .cards {
-    background: pink;  
+@media screen and (max-width: 600px) {
+  .left-section, .right-section {
+    width: 100%;  
   }
 }
 

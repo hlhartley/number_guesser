@@ -48,24 +48,32 @@ var highGuessErrorMessage = document.querySelector('#high-guess-error-message');
 // Backup for if guess is NaN
 var numberErrorMessage = document.querySelector('#number-error-message');
 
+// Var to Track Winner
+var winner = '';
+
+// Guess Counter
+var guessCounter = 0;
+
 // **EVENT LISTENERS**
 // Submit Guess Button 
   submitGuessButton.addEventListener('click', function() {
-  challenger1NameResult.innerText = challenger1Name.value;
-  challenger2NameResult.innerText = challenger2Name.value;
-  challenger1GuessResult.innerText = challengerOneGuess.value;
-  challenger2GuessResult.innerText = challengerTwoGuess.value;
-  makeActiveClearButton.classList.remove('disabled');
-  makeActiveClearButton.classList.add('button:hover');
-  makeActiveResetButton.classList.remove('disabled');
-  makeActiveResetButton.classList.add('button:hover');
-  showResultCommentC1.classList.remove('hidden');
-  showResultCommentC2.classList.remove('hidden');
-  guessOutsideMinRange();
-  guessOutsideMaxRange();
-  resultMessageC1();
-  resultMessageC2();
-  inputGuessNumber();
+    challenger1NameResult.innerText = challenger1Name.value;
+    challenger2NameResult.innerText = challenger2Name.value;
+    challenger1GuessResult.innerText = challengerOneGuess.value;
+    challenger2GuessResult.innerText = challengerTwoGuess.value;
+    makeActiveClearButton.classList.remove('disabled');
+    makeActiveClearButton.classList.add('button:hover');
+    makeActiveResetButton.classList.remove('disabled');
+    makeActiveResetButton.classList.add('button:hover');
+    showResultCommentC1.classList.remove('hidden');
+    showResultCommentC2.classList.remove('hidden');
+    guessOutsideMinRange();
+    guessOutsideMaxRange();
+    guessCounter++;
+    console.log(guessCounter);
+    resultMessageC1();
+    resultMessageC2();
+    inputGuessNumber();
   });
 
 // Update Button
@@ -108,6 +116,8 @@ var numberErrorMessage = document.querySelector('#number-error-message');
   minRangeError.classList.add('display-none');
   maxRangeError.classList.add('display-none');
   newRandomNumber;
+  challenger1Name.value = "";
+  challenger2Name.value = ""; 
 });
 
 // **FUNCTIONS** 
@@ -160,6 +170,7 @@ function guessOutsideMinRange() {
 function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultCommentC1.innerText = "BOOM!";
+  winner = challenger1NameResult.innerText;
 
   addWinnerCard();
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
@@ -173,6 +184,7 @@ function resultMessageC2() {
   if (parseInt(challengerTwoGuess.value) === newRandomNumber) {
   showResultCommentC2.innerText = "BOOM!";
   addWinnerCard();
+  winner = challenger2NameResult.innerText;
 
   } else if (parseInt(challengerTwoGuess.value) < newRandomNumber) {
   showResultCommentC2.innerText = "Sorry, that is too low";
@@ -190,20 +202,24 @@ function inputGuessNumber() {
 
 // Add Winner Cards
 var rightSection = document.querySelector('.right-section');
-function addWinnerCard(player1, player2, winner) {
+function addWinnerCard() {
  var cardHtml =
  `<article class="right-section">
-          <div class="cards">
-            <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
-            <hr />
-            <b>CHALLENGER NAME</b><br>
-            WINNER
-            <hr />
-            <b>0</b> GUESSES
-            <b>0</b> MINUTES
-            X
-          </div>
-        </article>`;
+    <div class="cards">
+      <b>${challenger1NameResult.innerText}</b> VS. <b>${challenger2NameResult.innerText}</b>
+      <hr />
+      <b>${winner}</b><br>
+      WINNER
+      <hr />
+      <b>${guessCounter}</b> GUESSES
+      <b>0</b> MINUTES
+      X
+    </div>
+  </article>`;
  rightSection.innerHTML = rightSection.innerHTML + cardHtml;
 }
+
+
+
+
 
