@@ -160,7 +160,8 @@ function guessOutsideMinRange() {
 function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultCommentC1.innerText = "BOOM!";
-  // addWinnerCard();
+
+  addWinnerCard();
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
   showResultCommentC1.innerText = "Sorry, that is too low";
   } else if (parseInt(challengerOneGuess.value) > newRandomNumber) {
@@ -171,6 +172,8 @@ function resultMessageC1() {
 function resultMessageC2() {
   if (parseInt(challengerTwoGuess.value) === newRandomNumber) {
   showResultCommentC2.innerText = "BOOM!";
+  addWinnerCard();
+
   } else if (parseInt(challengerTwoGuess.value) < newRandomNumber) {
   showResultCommentC2.innerText = "Sorry, that is too low";
   } else if (parseInt(challengerTwoGuess.value) > newRandomNumber) {
@@ -185,23 +188,22 @@ function inputGuessNumber() {
   };
 }
 
-
-// function addElement() {
-// var createAddCard = document.createElement("div");
-// var newCard = document.createTestNode("New card")
-// createAddCard.appendChild(newCard);
-
-// var currentDiv = document.getElementById("div1");
-// document.body.insertBefore(newCard, currentDiv);
-// }
-
-// <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
-//             <hr />
-//             <b>CHALLENGER NAME</b><br>
-//             WINNER
-//             <hr />
-//             <b>0</b> GUESSES
-//             <b>0</b> MINUTES
-//             X
-
+// Add Winner Cards
+var rightSection = document.querySelector('.right-section');
+function addWinnerCard(player1, player2, winner) {
+ var cardHtml =
+ `<article class="right-section">
+          <div class="cards">
+            <b>CHALLENGER 1 NAME</b> VS. <b>CHALLENGER 2 NAME</b>
+            <hr />
+            <b>CHALLENGER NAME</b><br>
+            WINNER
+            <hr />
+            <b>0</b> GUESSES
+            <b>0</b> MINUTES
+            X
+          </div>
+        </article>`;
+ rightSection.innerHTML = rightSection.innerHTML + cardHtml;
+}
 

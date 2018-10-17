@@ -19,14 +19,20 @@ p {
 
 input:focus{
     outline: none;
-    border: 1.5px solid #6E6E6E;
+    border: 1.5px solid #D8D8D8;
+}
+
+hr {
+width: 60%;
+margin-left: auto;
+margin-right: auto;
 }
 
 /*font styling*/
 .title-number::before {
   content: "NUMBER";
   font-weight: bold;
-  font-size: 45px;
+  font-size: 50px;
   }
 
 .bold-font {
@@ -42,7 +48,7 @@ input:focus{
 
 .light-pink-font {
   color: #F74D9B;
-  font-size: 45px;
+  font-size: 50px;
 } 
 
 .subheading-text {
@@ -214,7 +220,7 @@ button:hover {
 .cards {
   background-color: white;
   border: 1px solid #C0C0C0;
-  width: 60%;
+  width: 70%;
   height: 20%;
   padding: 5px;
   margin: 10px;
@@ -237,5 +243,12 @@ button:hover {
   border-left: 1px solid #cccccc;
   height: 100px;
   display: inline-block;
+}
+
+/*media query*/
+@media screen and (max-width: 1000px) {
+  .cards {
+    background: pink;  
+  }
 }
 
