@@ -204,7 +204,7 @@ function inputGuessNumber() {
 var rightSection = document.querySelector('.right-section');
 function addWinnerCard() {
  var cardHtml =
- `<article class="right-section">
+ `<article class="right-section" onclick="removeOneCard()">
     <div class="cards">
       <b>${challenger1NameResult.innerText}</b> VS. <b>${challenger2NameResult.innerText}</b>
       <hr />
@@ -213,11 +213,27 @@ function addWinnerCard() {
       <hr />
       <b>${guessCounter}</b> GUESSES
       <b>0</b> MINUTES
-      X
+      <div class="x-button">X</div>
     </div>
   </article>`;
  rightSection.innerHTML = rightSection.innerHTML + cardHtml;
 }
+
+
+function removeOneCard() {
+  event.currentTarget.innerHTML = "";
+  // console.log(event.target);
+  // console.log(event.currentTarget)
+}
+
+// Remove All Cards
+var removeCards = document.querySelector('.remove-cards');
+function removeAllCards() {
+  rightSection.innerHTML = "";
+}
+removeCards.addEventListener('click', removeAllCards);
+
+
 
 
 
