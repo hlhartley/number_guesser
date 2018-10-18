@@ -65,20 +65,18 @@ var isFirstRound = true;
     e.preventDefault();
     challenger1NameResult.innerText = challenger1Name.value;
     challenger2NameResult.innerText = challenger2Name.value;
+    resultMessageC1();
+    resultMessageC2();
     challenger1GuessResult.innerText = challengerOneGuess.value;
     challenger2GuessResult.innerText = challengerTwoGuess.value;
     makeActiveClearButton.classList.remove('disabled');
     makeActiveClearButton.classList.add('button:hover');
     makeActiveResetButton.classList.remove('disabled');
     makeActiveResetButton.classList.add('button:hover');
-    showResultCommentC1.classList.remove('hidden');
-    showResultCommentC2.classList.remove('hidden');
     guessOutsideMinRange();
     guessOutsideMaxRange();
     guessCounter++;
     console.log(guessCounter);
-    resultMessageC1();
-    resultMessageC2();
     inputGuessNumber();
     decreaseMinMaxValue();
     timeFunction();
@@ -116,6 +114,10 @@ var isFirstRound = true;
   maxRangeError.classList.add('display-none');
   challenger1Name.value = "";
   challenger2Name.value = "";
+  showResultCommentC1.innerText = "0";
+  showResultCommentC2.innerText = "0";
+  showResultCommentC1.classList.add('dark-pink-font');
+  showResultCommentC2.classList.add('dark-pink-font');
 });
 
 // Reset Button
@@ -264,15 +266,6 @@ function removeOneCard() {
 function removeAllCards() {
   rightSection.innerHTML = `<button onclick="removeAllCards()" class="remove-cards">REMOVE CARDS</button>`;
 }
-
-// Remove All Cards
-// var removeCards = document.querySelector('.remove-cards');
-// function removeAllCards() {
-//   console.log("remove")
-//   rightSection.innerHTML = "";
-// }
-// removeCards.addEventListener('click', removeAllCards);
-
 
 
 
