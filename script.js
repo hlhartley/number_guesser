@@ -52,7 +52,7 @@ var numberErrorMessage = document.querySelector('#number-error-message');
 var winner = '';
 
 // Guess Counter
-var guessCounter = 0;
+var guessCounter = 1;
 
 // Time Counters
 var startTime; 
@@ -63,8 +63,8 @@ var isFirstRound = true;
 // Submit Guess Button 
   submitGuessButton.addEventListener('click', function(e) {
     e.preventDefault();
-    challenger1NameResult.innerText = challenger1Name.value;
-    challenger2NameResult.innerText = challenger2Name.value;
+    challenger1NameResult.innerText = challenger1Name.value.toUpperCase();
+    challenger2NameResult.innerText = challenger2Name.value.toUpperCase();
     resultMessageC1();
     resultMessageC2();
     challenger1GuessResult.innerText = challengerOneGuess.value;
@@ -203,7 +203,7 @@ function resultMessageC1() {
   if (parseInt(challengerOneGuess.value) === newRandomNumber) {
   showResultCommentC1.innerText = "BOOM!";
   endTime = new Date;
-  winner = challenger1NameResult.innerText;
+  winner = (challenger1NameResult.innerText).toUpperCase();
   addWinnerCard();
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
   showResultCommentC1.innerText = "Sorry, that is too low";
@@ -217,7 +217,7 @@ function resultMessageC2() {
   showResultCommentC2.innerText = "BOOM!";
   endTime = new Date;
   addWinnerCard();
-  winner = challenger2NameResult.innerText;
+  winner = (challenger2NameResult.innerText).toUpperCase();
   } else if (parseInt(challengerTwoGuess.value) < newRandomNumber) {
   showResultCommentC2.innerText = "Sorry, that is too low";
   } else if (parseInt(challengerTwoGuess.value) > newRandomNumber) {
