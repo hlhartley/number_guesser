@@ -5,7 +5,7 @@ Heather Hartley & Niraj
 - 
 
 ## Original comp img
-![Screenshot](static-comp-challenge-1-img.png)
+![Screenshot](number_guesser_static_comp_original.png)
 
 ## My comp img
 ![Screenshot](hh-comp-challenge-1-img.png)
