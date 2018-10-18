@@ -3,7 +3,7 @@ Heather Hartley & Niraj Aryal
 
 ## Overview
 - Creating a number guesser game that can be played between 2 players
-- Generating a random number each time the game is staruntted or reset
+- Generating a random number each time the game is started or reset
 - Has a min and max range value, which increases and decreases by incremenents of 10 every time a player guesses the correct answer
 - Has various buttons: submit, clear, reset, and clear all cards
 - Pops up winner card on right side of screen when a player wins
