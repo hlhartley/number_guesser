@@ -1,5 +1,5 @@
 # Number Guesser Project
-Heather Hartley & Niraj
+Heather Hartley & Niraj Aryal
 
 ## Overview
 - Creating a number guesser game that can be played between 2 players
