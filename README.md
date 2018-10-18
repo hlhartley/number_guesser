@@ -15,4 +15,4 @@ Heather Hartley & Niraj
 ![Screenshot](number_guesser_static_comp_original.png)
 
 ## Our project img
-![Screenshot](our_number_guesser_static_comp.png)
+![Screenshot](number_guesser_static_comp.png)
