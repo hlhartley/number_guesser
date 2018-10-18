@@ -7,30 +7,33 @@
 </head>
 <body>
   <header class="header light-pink-font">
-    <div class="title-number">GUESSER</div>
-    <div class="subheading-text"> ULTIMATE CHALLENGER EDITION 
+    <div class="title-number">
+      <span class="guesser-text">GUESSER</span>
+    </div>
+    <div class="subheading-text">
+    <p> 
+      ULTIMATE CHALLENGER EDITION
+    </p>
     </div>
   </header>
   <section class="container">
     <article class="left-section">
-      <div class="left-section-top">
+      <div class="left-section-top justify-space">
         <p class="bold-font">
           Set Range
         </p>
         <div class="range-div">
-          <p class="minrange-div">
+          <div class="minrange-div">
             Min Range<br>
-          <input type="number" name="minrange" size="4" id="minrange">
-          </p>
-          <p class="maxrange-div">
+          <input type="number" name="minrange" input size="4" id="minrange">
+          </div>
+          <div class="maxrange-div">
             Max Range<br>
-          <input type="number" name="maxrange" size="4" id="maxrange">
-          </p>
-          <p>
+          <input type="number" name="maxrange" id="maxrange">
+        </div>
           <button class="update">
             UPDATE
           </button>
-        </p>
         </div>
         <div id="min-range-error" class="display-none">
           <p id="error-message">

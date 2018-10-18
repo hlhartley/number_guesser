@@ -9,7 +9,6 @@
 
 body {
   color: #404041;
-  font-weight: 300;
   font-size: 17px;
 }
 
@@ -18,8 +17,8 @@ p {
 }
 
 input:focus{
-    outline: none;
-    border: 1.5px solid #D8D8D8;
+  outline: none;
+  border: 1.5px solid #D8D8D8;
 }
 
 hr {
@@ -28,12 +27,34 @@ margin-left: auto;
 margin-right: auto;
 }
 
+/*White line*/
+#second-head {
+  width: 30px;
+  text-align: center;
+  border-bottom: 3px solid #ffffff;
+  line-height: 0.35em;
+  margin: 10px 0 20px;
+}
+
+#second-head span {
+   display: inline;
+   background:#404041;
+   padding:0 10px;
+   color: white;
+   font-size: 23px;
+   font-weight: normal;
+}
+
 /*font styling*/
 .title-number::before {
   content: "NUMBER";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 50px;
   }
+
+.guesser-text {
+  font-weight: 300;
+}
 
 .bold-font {
   font-weight: bold;
@@ -83,10 +104,13 @@ button:focus {
 
 #submitguessbutton {
   background-color: #6E6E6E;
-  padding: 5px;
   border-radius: 12px;
-  width: 175px;
   color: #FFFFFF;
+  font-size: 1em;
+  margin: 6.5px;
+  padding: 5px;
+  width: 150px;
+  height: auto;
 }
 
 button:hover {
@@ -166,29 +190,28 @@ button:hover {
 .container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
   width: 100%;
 }
 
 .left-section {
   background-color: #F5F5F5;
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
+  justify-content: space-between;
   width: 50%;
 }
 
 .right-section { 
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   background-color: #D8D8D8;
   color: #505050;
   width: 50%;
 }
 
 .left-section-top {
+  justify-content: space-between;
   background-color: white;
-  display: flex;
-  flex-direction: column;
   border: 1px solid #E8E8E8;
   padding: 10px;
   margin: 10px;
@@ -206,7 +229,6 @@ button:hover {
 .left-section-bottom {
   background-color: white;
   display: flex;
-
   flex-direction: column;
   border: 1px solid #E8E8E8;
   padding: 10px;
@@ -225,10 +247,6 @@ button:hover {
   width: 100%;
 }
 
-.minrange-div, .maxrange-div, .result-div {
-  width: 100%;
-}
-
 #minvalue, #maxvalue{
   font-weight: 700;
   text-decoration: underline;
@@ -238,7 +256,7 @@ button:hover {
   background-color: white;
   border: 1px solid #C0C0C0;
   width: 70%;
-  height: 20%;
+  height: 50%;
   padding: 5px;
   margin: 10px;
   text-align: center;

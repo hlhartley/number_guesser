@@ -61,7 +61,8 @@ var isFirstRound = true;
 
 // **EVENT LISTENERS**
 // Submit Guess Button 
-  submitGuessButton.addEventListener('click', function() {
+  submitGuessButton.addEventListener('click', function(e) {
+    e.preventDefault();
     challenger1NameResult.innerText = challenger1Name.value;
     challenger2NameResult.innerText = challenger2Name.value;
     challenger1GuessResult.innerText = challengerOneGuess.value;
@@ -91,7 +92,8 @@ var isFirstRound = true;
   }
 
 // Update Button
-  updateButton.addEventListener('click', function() {
+  updateButton.addEventListener('click', function(e) {
+  e.preventDefault();
   minValue.innerText = minRange.value;
   maxValue.innerText = maxRange.value;
   newRandomNumber = randomNumberFunction();
@@ -105,11 +107,15 @@ var isFirstRound = true;
   clearInput.addEventListener('click', function(){
   challengerOneGuess.value = "";
   challengerTwoGuess.value = "";
+  challenger1GuessResult.innerText = "";
+  challenger2GuessResult.innerText = "";
   minRange.value = "";
   maxRange.value = "";
   guessErrorMessage.classList.add('display-none');
   minRangeError.classList.add('display-none');
   maxRangeError.classList.add('display-none');
+  challenger1Name.value = "";
+  challenger2Name.value = "";
 });
 
 // Reset Button
@@ -122,16 +128,18 @@ var isFirstRound = true;
   showResultCommentC2.innerText = "";
   minValue.innerText = "";
   maxValue.innerText = "";
-  showResultCommentC1 = "";
-  showResultCommentC2 = "";
   clearInput.classList.add('disabled');
   resetGame.classList.add('disabled');
   guessErrorMessage.classList.add('display-none');
   minRangeError.classList.add('display-none');
   maxRangeError.classList.add('display-none');
-  newRandomNumber;
   challenger1Name.value = "";
-  challenger2Name.value = ""; 
+  challenger2Name.value = "";
+  challenger1GuessResult.innerText = "0";
+  challenger2GuessResult.innerText = "0";
+  challenger1NameResult.innerText = "Challenger 1";
+  challenger2NameResult.innerText = "Challenger 2";
+  newRandomNumber;
 });
 
 // **FUNCTIONS** 
@@ -194,7 +202,6 @@ function resultMessageC1() {
   showResultCommentC1.innerText = "BOOM!";
   endTime = new Date;
   winner = challenger1NameResult.innerText;
-
   addWinnerCard();
   } else if (parseInt(challengerOneGuess.value) < newRandomNumber) {
   showResultCommentC1.innerText = "Sorry, that is too low";
@@ -209,12 +216,6 @@ function resultMessageC2() {
   endTime = new Date;
   addWinnerCard();
   winner = challenger2NameResult.innerText;
-
-  // DECREASE MIN RANGE BY 10, INCREASE MAX RANGE BY 10
-  // if challengerTwoGuess.value = newRandomNumber && reset button (resetGame) is clicked =>
-  // minValue.innerText - 10
-  // maxValue.innerText + 10
-
   } else if (parseInt(challengerTwoGuess.value) < newRandomNumber) {
   showResultCommentC2.innerText = "Sorry, that is too low";
   } else if (parseInt(challengerTwoGuess.value) > newRandomNumber) {
